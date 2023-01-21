@@ -1,4 +1,4 @@
-body {
-  background: url(default-photo.jpg);
-  background-size: cover;
-}
+<body>
+  <button id="select-audio-button">Select Audio</button>
+  <audio id="audio-player"></audio>
+</body>
