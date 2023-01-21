@@ -1,14 +1,17 @@
-const selectPhotoButton = document.getElementById('select-photo-button');
-selectPhotoButton.addEventListener('click', function() {
-  // prompt user to select a photo using file input
+const selectAudioButton = document.getElementById('select-audio-button');
+const audioPlayer = document.getElementById('audio-player');
+
+selectAudioButton.addEventListener('click', function() {
+  // prompt user to select an audio file using file input
   const fileInput = document.createElement('input');
   fileInput.type = 'file';
-  fileInput.accept = 'image/*';
+  fileInput.accept = 'audio/*';
   fileInput.click();
 
   fileInput.addEventListener('change', function() {
-    // get selected photo and set as background
-    const selectedPhoto = fileInput.files[0];
-    document.body.style.backgroundImage = `url(${URL.createObjectURL(selectedPhoto)})`;
+    // get selected audio file and set as source for audio player
+    const selectedAudio = fileInput.files[0];
+    audioPlayer.src = URL.createObjectURL(selectedAudio);
+    audioPlayer.load();
   });
 });
